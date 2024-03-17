@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solutio
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EagleBooks.Users", "EagleBooks.Users\EagleBooks.Users.csproj", "{CE58417E-B48E-4ACB-ACE5-92889EFF2788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6745AD9A-DC36-4CD8-A339-387535C5E0AB} = {B34F8F61-70C1-4997-AFF4-B5C8D6744F9A}
 		{8DD884B2-1915-4B1A-960F-1BD10EECCAE1} = {B34F8F61-70C1-4997-AFF4-B5C8D6744F9A}
+		{CE58417E-B48E-4ACB-ACE5-92889EFF2788} = {7ACAD0AD-DE96-4409-9B95-AC17DB2D29C2}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6745AD9A-DC36-4CD8-A339-387535C5E0AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -41,5 +44,9 @@ Global
 		{4DA15BEE-1AFE-464E-B8C3-E9C2532401AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DA15BEE-1AFE-464E-B8C3-E9C2532401AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DA15BEE-1AFE-464E-B8C3-E9C2532401AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE58417E-B48E-4ACB-ACE5-92889EFF2788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE58417E-B48E-4ACB-ACE5-92889EFF2788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE58417E-B48E-4ACB-ACE5-92889EFF2788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE58417E-B48E-4ACB-ACE5-92889EFF2788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

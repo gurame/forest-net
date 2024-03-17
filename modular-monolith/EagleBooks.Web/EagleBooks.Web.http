@@ -1,6 +1,75 @@
 @EagleBooks.Web_HostAddress = http://localhost:5243
 
-GET {{EagleBooks.Web_HostAddress}}/weatherforecast/
+GET {{EagleBooks.Web_HostAddress}}/books/
 Accept: application/json
+###
 
+GET {{EagleBooks.Web_HostAddress}}/books/8835ac79-354d-407c-b503-0f9fb757c9e2
+Accept: application/json
+###
+
+@NewBookId = 1035ac79-894d-407c-b503-0f9fb757c9e2
+POST {{EagleBooks.Web_HostAddress}}/books
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "{{NewBookId}}",
+  "title": "Modular Monoliths",
+  "author": "Gurame",
+  "price": "29.99"
+}
+###
+
+POST {{EagleBooks.Web_HostAddress}}/books/{{NewBookId}}/pricehistory
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "{{NewBookId}}",
+  "newPrice": "-19.99"
+}
+###
+
+DELETE {{EagleBooks.Web_HostAddress}}/books/{{NewBookId}}
+Accept: application/json
+###
+
+POST {{EagleBooks.Web_HostAddress}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "gurame@gurame.net",
+  "password": "P@$$w0rd"
+}
+###
+
+POST {{EagleBooks.Web_HostAddress}}/users/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "gurame@gurame.net",
+  "password": "P@$$w0rd"
+}
+###
+
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJndXJhbWVAZ3VyYW1lLm5ldCIsImlhdCI6MTcxMDcxNTkwMiwiZXhwIjoxNzEwNzE5NTAyLCJuYmYiOjE3MTA3MTU5MDJ9.Yz2otl3QzQBhlj3xAl0YhyBmvzJJjnZ1bilEy1VH98A
+# Add item to cart
+POST {{EagleBooks.Web_HostAddress}}/cart
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "bookId": "{{NewBookId}}",
+  "quantity": 1
+}
+###
+
+# List items in cart
+GET {{EagleBooks.Web_HostAddress}}/cart
+Accept: application/json
+Authorization: Bearer {{token}}
 ###

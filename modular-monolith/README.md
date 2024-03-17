@@ -13,9 +13,9 @@ communication that they lose the benefits of being independent
 ### Comparison
 | Trade-offs  | Layered | Microservices | Modular Monolith |
 |:------------|:-------:|:-------------:|:----------------:|
-| Modularity  |    ❌    |      ✔️️      |       ✔️️        |
+| Modularity  |    ❌   |      ✔️️      |       ✔️️        |
 | Cost        |    $    |      $$$      |        $         |
-| Scalability |    ❌    |      ✔️️      |        ❌         |
+| Scalability |    ❌   |      ✔️️      |        ❌         |
 | Simplicity  |   ✔️    |       ❌       |       ✔️️        |
 
 ### Install global tools
@@ -85,11 +85,11 @@ dotnet add src/API/API.csproj package Microsoft.EntityFrameworkCore.Design
 ```
 add migration
 ```zsh
-dotnet ef migrations add Initial -c BooksDbContext --project src/Books/Books.csproj --startup-project src/API/API.csproj -o Data/Migrations
+dotnet ef migrations add Initial -c BooksDbContext --project EagleBooks.Books/EagleBooks.Books.csproj --startup-project EagleBooks.Web/EagleBooks.Web.csproj -o Data/Migrations
 ```
 apply migration
 ```zsh
-dotnet ef database update -c BooksDbContext --project src/Books/Books.csproj --startup-project src/API/API.csproj
+dotnet ef database update -c BooksDbContext --project EagleBooks.Books/EagleBooks.Books.csproj --startup-project EagleBooks.Web/EagleBooks.Web.csproj
 ```
 add packages for testing
 ```bash
@@ -106,12 +106,12 @@ dotnet ef database update -c BooksDbContext --project src/Books/Books.csproj --s
 ```
 add migration for User Module
 ```zsh
-dotnet ef migrations add Initial -c UsersDbContext --project src/Users/Users.csproj --startup-project src/API/API.csproj -o Data/Migrations
+dotnet ef migrations add Initial -c UsersDbContext --project EagleBooks.Users/EagleBooks.Users.csproj --startup-project EagleBooks.Web/EagleBooks.Web.csproj -o Data/Migrations
 ```
 ##
 apply migration for User Module
 ```zsh
-dotnet ef database update -c UsersDbContext --project src/Users/Users.csproj --startup-project src/API/API.csproj
+dotnet ef database update -c UsersDbContext --project EagleBooks.Users/EagleBooks.Users.csproj --startup-project EagleBooks.Web/EagleBooks.Web.csproj
 ```
 ##
 add migration for CarItem in User Module

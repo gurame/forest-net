@@ -6,9 +6,21 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Result" Version="8.0.0" />
+    <PackageReference Include="FastEndpoints" Version="5.23.0" />
+    <PackageReference Include="FastEndpoints.Security" Version="5.23.0" />
+    <PackageReference Include="FastEndpoints.Swagger" Version="5.23.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+  </ItemGroup>
+  
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.2"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+      <ProjectReference Include="..\EagleBooks.Books\EagleBooks.Books.csproj" />
+      <ProjectReference Include="..\EagleBooks.Users\EagleBooks.Users.csproj" />
     </ItemGroup>
 
 </Project>

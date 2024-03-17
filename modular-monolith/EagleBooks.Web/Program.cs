@@ -1,44 +1,49 @@
+using System.Reflection;
+using EagleBooks.Books;
+using EagleBooks.Users;
+using FastEndpoints;
+using FastEndpoints.Security;
+using FastEndpoints.Swagger;
+using Serilog;
+
+var logger = Log.Logger = new LoggerConfiguration()
+  .Enrich.FromLogContext()
+  .WriteTo.Console()
+  .CreateLogger();
+
+logger.Information("Starting EagleBooks.Web Host");
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Host.UseSerilog((_, config) =>
+{
+  config.ReadFrom.Configuration(builder.Configuration);
+});
+
+builder.Services.AddFastEndpoints()
+  .AddAuthenticationJwtBearer(x =>
+  {
+    x.SigningKey = builder.Configuration["Auth:JwtSecret"];
+  })
+  .AddAuthorization()
+  .SwaggerDocument();
+
+// Add module services
+List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
+builder.Services.AddBooksModuleServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
+
+// Set up mediatR
+builder.Services.AddMediatR(cfg =>
+  cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseAuthentication()
+  .UseAuthorization();
 
-app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
+app.UseFastEndpoints()
+  .UseSwaggerGen();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+public partial class Program {}
