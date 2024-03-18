@@ -25,7 +25,7 @@ internal class BookService : IBookService
     }
   }
 
-  public async Task<BookDto> getBookByIdAsync(Guid id)
+  public async Task<BookDto> GetBookByIdAsync(Guid id)
   {
     var book = await _bookRepository.GetByIdAsync(id);
     return new BookDto(book!.Id, book.Title, book.Author, book.Price);

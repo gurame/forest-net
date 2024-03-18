@@ -96,13 +96,13 @@ csharp_style_throw_expression = true:suggestion
 csharp_style_conditional_delegate_call = true:suggestion
 # Modifier preferences
 csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:suggestion
+
 #### Naming styles ####
 
-# Naming rules
-
-dotnet_naming_rule.suffix_async_should_be_asyncsuffix.severity = error #suggestion
-dotnet_naming_rule.suffix_async_should_be_asyncsuffix.symbols = suffix_async
-dotnet_naming_rule.suffix_async_should_be_asyncsuffix.style = asyncsuffix
+# Naming rules : TODO
+# dotnet_naming_rule.suffix_async_should_be_asyncsuffix.severity = error #suggestion
+# dotnet_naming_rule.suffix_async_should_be_asyncsuffix.symbols = suffix_async
+# dotnet_naming_rule.suffix_async_should_be_asyncsuffix.style = asyncsuffix
 
 # Symbol specifications
 
@@ -116,6 +116,7 @@ dotnet_naming_style.asyncsuffix.required_prefix =
 dotnet_naming_style.asyncsuffix.required_suffix = Async
 dotnet_naming_style.asyncsuffix.word_separator =
 dotnet_naming_style.asyncsuffix.capitalization = pascal_case
+
 # Expression-level preferences
 csharp_prefer_braces = true:silent
 csharp_style_deconstructed_variable_declaration = true:suggestion
@@ -160,3 +161,4 @@ csharp_preserve_single_line_blocks = true
 [*.vb]
 # Modifier preferences
 visual_basic_preferred_modifier_order = Partial,Default,Private,Protected,Public,Friend,NotOverridable,Overridable,MustOverride,Overloads,Overrides,MustInherit,NotInheritable,Static,Shared,Shadows,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion
+

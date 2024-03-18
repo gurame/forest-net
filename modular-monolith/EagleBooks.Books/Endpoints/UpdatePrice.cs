@@ -15,7 +15,7 @@ internal class UpdatePrice(IBookService bookService) : Endpoint<UpdateBookPriceR
   {
     await _bookService.UpdateBookPriceAsync(request.Id, request.NewPrice);
 
-    var updatedBook = await _bookService.getBookByIdAsync(request.Id);
+    var updatedBook = await _bookService.GetBookByIdAsync(request.Id);
 
     await SendAsync(updatedBook);
   }

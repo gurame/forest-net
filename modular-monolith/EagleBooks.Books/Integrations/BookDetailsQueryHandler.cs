@@ -13,7 +13,7 @@ internal class BookDetailsQueryHandler : IRequestHandler<BookDetailsQuery, Resul
   }
   public async Task<Result<BookDetailsResponse>> Handle(BookDetailsQuery request, CancellationToken cancellationToken)
   {
-    var book = await _bookService.getBookByIdAsync(request.BookId);
+    var book = await _bookService.GetBookByIdAsync(request.BookId);
     if (book is null)
     {
       return Result.NotFound();

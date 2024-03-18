@@ -1,7 +1,6 @@
 ﻿using FastEndpoints;
 using FastEndpoints.Security;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
 
 namespace EagleBooks.Users.UserEndpoints;
 
@@ -36,9 +35,12 @@ internal class Login : Endpoint<CreateUserRequest>
     }
 
     var jwtSecret = Config["Auth:JwtSecret"];
-    Logger.LogInformation(jwtSecret);
-    var token = JWTBearer.CreateToken(jwtSecret, 
-      p=> p["EmailAddress"] = user.Email!);
+    var token = JwtBearer.CreateToken(
+      x =>
+      {
+        x.SigningKey = jwtSecret!;
+        x.User.Claims.Add(("EmailAddress", user.Email)!);
+      });
     
     await SendAsync(token);
   }

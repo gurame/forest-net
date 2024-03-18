@@ -13,7 +13,7 @@ internal class GetById(IBookService bookService) : Endpoint<GetBookByIdRequest, 
 
   public override async Task HandleAsync(GetBookByIdRequest request, CancellationToken ct)
   {
-    var book = await _bookService.getBookByIdAsync(request.Id);
+    var book = await _bookService.GetBookByIdAsync(request.Id);
     if (book is null)
     {
       await SendNotFoundAsync();
