@@ -55,7 +55,8 @@ Content-Type: application/json
 }
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJndXJhbWVAZ3VyYW1lLm5ldCIsImlhdCI6MTcxMDcxNTkwMiwiZXhwIjoxNzEwNzE5NTAyLCJuYmYiOjE3MTA3MTU5MDJ9.Yz2otl3QzQBhlj3xAl0YhyBmvzJJjnZ1bilEy1VH98A
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJndXJhbWVAZ3VyYW1lLm5ldCIsImlhdCI6MTcxMDk5MzAyMCwiZXhwIjoxNzEwOTk2NjIwLCJuYmYiOjE3MTA5OTMwMjB9.8Me7-kRZg9E6W5r9GZiAsKzZMWyw30ELqOzYMSsIy5k
+
 # Add item to cart
 POST {{EagleBooks.Web_HostAddress}}/cart
 Accept: application/json
@@ -72,4 +73,29 @@ Authorization: Bearer {{token}}
 GET {{EagleBooks.Web_HostAddress}}/cart
 Accept: application/json
 Authorization: Bearer {{token}}
+###
+
+# List Addresses
+
+GET {{EagleBooks.Web_HostAddress}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+# Add Address to User
+POST {{EagleBooks.Web_HostAddress}}/users/addresses
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "street1": "2 Main St.",
+  "street2": "Number 722",
+  "city":"Anytown",
+  "state":"OH",
+  "postalCode":"12345-6789",
+  "country":"USA"
+}
+
 ###

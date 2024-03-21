@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
-using EagleBooks.Users.Data;
+using EagleBooks.Users.Domain;
+using EagleBooks.Users.Infrastructure.Data;
+using EagleBooks.Users.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,10 +23,11 @@ public static class UsersModuleExtensions
 
     services.AddIdentityCore<ApplicationUser>()
       .AddEntityFrameworkStores<UsersDbContext>();
+
+    services.AddScoped<IApplicationUserRepository, EfApplicationUserRepository>();
+    services.AddScoped<IReadOnlyUserStreetAddressRepository, EfUserStreetAddressRepository>();
     
     mediatRAssemblies.Add((Assembly)typeof(UsersModuleExtensions).Assembly);
-    
-    services.AddScoped<IApplicationUserRepository, EfApplicationUserRepository>();
     
     logger.Information("{Module} module services registered", "Users");
     return services;

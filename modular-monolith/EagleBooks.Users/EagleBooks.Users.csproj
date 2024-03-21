@@ -20,21 +20,53 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EagleBooks.Books.Contracts\EagleBooks.Books.Contracts.csproj" />
+    <ProjectReference Include="..\EagleBooks.OrderProcessing.Contracts\EagleBooks.OrderProcessing.Contracts.csproj" />
+    <ProjectReference Include="..\EagleBooks.SharedKernel\EagleBooks.SharedKernel.csproj" />
+    <ProjectReference Include="..\EagleBooks.Users.Contracts\EagleBooks.Users.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="UserEndpoints\Create.CreateUserRequest.cs">
-      <DependentUpon>Create.cs</DependentUpon>
-    </Compile>
-    <Compile Update="UserEndpoints\Login.UserLoginRequest.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Update="CartEndpoints\AddCartItem.AddCartItemRequest.cs">
       <DependentUpon>AddCartItem.cs</DependentUpon>
     </Compile>
     <Compile Update="CartEndpoints\ListCartItems.CartResponse.cs">
       <DependentUpon>ListCartItems.cs</DependentUpon>
     </Compile>
+    <Compile Update="UseCases\Cart\AddItem.Command.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Update="UseCases\Cart\Checkout.Command.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Update="UseCases\Cart\ListItems.Command.cs">
+      <DependentUpon>ListItems.cs</DependentUpon>
+    </Compile>
+    <Compile Update="UseCases\Users\AddAddress.Command.cs">
+      <DependentUpon>AddAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Endpoints\Users\AddAddress.Request.cs">
+      <DependentUpon>AddAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Endpoints\Cart\Checkout.Request.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Endpoints\Cart\Checkout.Response.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Update="UseCases\Users\ListAddresses.Query.cs">
+      <DependentUpon>ListAddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Endpoints\Users\ListAddresses.Response.cs">
+      <DependentUpon>ListAddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Update="UseCases\Users\GetById.Query.cs">
+      <DependentUpon>GetById.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   
 </Project>

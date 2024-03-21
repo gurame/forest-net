@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EagleBooks.OrderProcessing.Contracts\EagleBooks.OrderProcessing.Contracts.csproj" />
       <ProjectReference Include="..\EagleBooks.SharedKernel\EagleBooks.SharedKernel.csproj" />
       <ProjectReference Include="..\EagleBooks.Users.Contracts\EagleBooks.Users.Contracts.csproj" />
     </ItemGroup>
@@ -27,7 +28,6 @@
   
     <ItemGroup>
       <Folder Include="Endpoints\" />
-      <Folder Include="Integrations\" />
     </ItemGroup>
 
 </Project>

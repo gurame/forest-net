@@ -1,6 +1,6 @@
 namespace EagleBooks.OrderProcessing.Infrastructure.Data;
 
-public class DataSchemaConstants
+public static class DataSchemaConstants
 {
   internal const int STREET_MAXLENGTH = 50;
   internal const int CITY_MAXLENGTH = 50;

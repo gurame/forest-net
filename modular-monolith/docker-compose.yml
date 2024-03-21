@@ -11,3 +11,9 @@ services:
       MSSQL_TCP_PORT: 1433
     ports:
       - "1433:1433"
+  redis:
+    container_name: cache
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"

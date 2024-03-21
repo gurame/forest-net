@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EagleBooks.SharedKernel", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EagleBooks.Users.Contracts", "EagleBooks.Users.Contracts\EagleBooks.Users.Contracts.csproj", "{828DD753-6C81-4A6E-935B-647627886D93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EagleBooks.OrderProcessing.Contracts", "EagleBooks.OrderProcessing.Contracts\EagleBooks.OrderProcessing.Contracts.csproj", "{C6D3523E-0154-403C-822E-43CD894AD97A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,7 @@ Global
 		{CE58417E-B48E-4ACB-ACE5-92889EFF2788} = {7ACAD0AD-DE96-4409-9B95-AC17DB2D29C2}
 		{68204461-EC80-4E0F-903C-ADD05EA95865} = {3D0E7AA6-499E-4970-A621-40C189E347AE}
 		{828DD753-6C81-4A6E-935B-647627886D93} = {7ACAD0AD-DE96-4409-9B95-AC17DB2D29C2}
+		{C6D3523E-0154-403C-822E-43CD894AD97A} = {3D0E7AA6-499E-4970-A621-40C189E347AE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6745AD9A-DC36-4CD8-A339-387535C5E0AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -70,5 +73,9 @@ Global
 		{828DD753-6C81-4A6E-935B-647627886D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{828DD753-6C81-4A6E-935B-647627886D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{828DD753-6C81-4A6E-935B-647627886D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D3523E-0154-403C-822E-43CD894AD97A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D3523E-0154-403C-822E-43CD894AD97A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D3523E-0154-403C-822E-43CD894AD97A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D3523E-0154-403C-822E-43CD894AD97A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

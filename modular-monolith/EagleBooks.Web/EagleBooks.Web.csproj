@@ -20,6 +20,7 @@
   
     <ItemGroup>
       <ProjectReference Include="..\EagleBooks.Books\EagleBooks.Books.csproj" />
+      <ProjectReference Include="..\EagleBooks.OrderProcessing\EagleBooks.OrderProcessing.csproj" />
       <ProjectReference Include="..\EagleBooks.Users\EagleBooks.Users.csproj" />
     </ItemGroup>
 

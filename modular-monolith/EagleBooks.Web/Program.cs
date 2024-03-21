@@ -1,5 +1,7 @@
 using System.Reflection;
 using EagleBooks.Books;
+using EagleBooks.OrderProcessing;
+using EagleBooks.SharedKernel;
 using EagleBooks.Users;
 using FastEndpoints;
 using FastEndpoints.Security;
@@ -32,10 +34,17 @@ builder.Services.AddFastEndpoints()
 List<Assembly> mediatRAssemblies = [typeof(Program).Assembly];
 builder.Services.AddBooksModuleServices(builder.Configuration, logger, mediatRAssemblies);
 builder.Services.AddUsersModuleServices(builder.Configuration, logger, mediatRAssemblies);
+builder.Services.AddOrderProcessingModuleServices(builder.Configuration, logger, mediatRAssemblies);
 
 // Set up mediatR
 builder.Services.AddMediatR(cfg =>
   cfg.RegisterServicesFromAssemblies(mediatRAssemblies.ToArray()));
+builder.Services.AddMediatRLoggingBehavior();
+builder.Services.AddMediatRFluentValidationBehavior();
+// builder.Services.AddValidatorsFromAssemblyContaining<AddItemToCartCommandValidator>();
+
+// Add MediatR Domain Event Dispatcher
+builder.Services.AddScoped<IDomainEventDispatcher, MediatRDomainEventDispatcher>();
 
 var app = builder.Build();
 
